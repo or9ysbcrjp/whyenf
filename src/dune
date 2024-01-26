@@ -1,0 +1,12 @@
+(ocamllex
+ (modules other_lexer formula_lexer))
+
+(menhir
+ (modules formula_parser))
+ ;; debug (flags --explain --inspection --table --dump))
+
+(library
+ (name monitor_lib)
+ (libraries core_kernel base zarith unix)
+ ;; debug menhirLib
+ (preprocess (pps ppx_jane)))
